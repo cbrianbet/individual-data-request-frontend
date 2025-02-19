@@ -28,7 +28,6 @@
 
       data = resp.data.request
       files = resp.data?.files
-      console.log(files.filter((file)=> file.FileURL.includes('/')))
 
     } catch (err) {
       error = err.message;

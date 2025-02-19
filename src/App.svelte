@@ -7,8 +7,6 @@
   import User from './layouts/UsersLayout.svelte';
   // User Layout
   import Requester from './layouts/RequesterLayout.svelte';
-  // Assignee layout
-  import Assignee from './layouts/assigneeLayout.svelte'
   // Internal Reviewer Layout
   import InternalreviewerLayout from './layouts/InternalReviewerLayout.svelte'
   // External Reviewer Layout
@@ -64,7 +62,6 @@
   <Route path="requester/*requester">
     <AuthGuard component={Requester} />
   </Route>
-  <Route path="assignee/*assignee" component={Assignee} />
   <Route path="internalreviewer/*internalreviewer" component={InternalreviewerLayout} />
   <Route path="externalreviewer/*externalreviewer" component={ExternalReviewerLayout} />
 

@@ -59,27 +59,27 @@
   <div class="w-full">
     <ul class=" relative flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 1 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(1)}>
+        <a href="undefined" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 1 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(1)}>
           All
         </a>
       </li>
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 2 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(2)}>
+        <a href="undefined" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 2 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(2)}>
           Pending Review
         </a>
       </li>
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 3 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(3)}>
+        <a href="undefined" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 3 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(3)}>
           Request In Progress
         </a>
       </li>
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-        <a href="#" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 4 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(4)}>
+        <a href="undefined" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 4 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(4)}>
           Rejected Requests
         </a>
       </li>
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 5 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(5)}>
+        <a href="undefined" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal {openTab === 5 ? 'text-white bg-red-600':'text-red-600 bg-white'}" on:click={() => toggleTabs(5)}>
           Completed Requests
         </a>
       </li>
