@@ -2,6 +2,8 @@
   import { onMount } from 'svelte';
   import moment from 'moment';
   import FormAnalystComplete from "../Forms/FormAnalystComplete.svelte";
+  import UserFeedback from "../Forms/UserFeedback.svelte";
+  import {auth} from "../../authentication/AuthStore";
 
   const env = process.env.config;
   export let request_id;
@@ -9,9 +11,12 @@
   let data = [];
   let loading = true;
   let error = null;
-
+  let assigneeUuid = null;
+  let user = null
 
   onMount(async () => {
+    auth.userRoles.subscribe((value) => (user = value) )
+    assigneeUuid = user.find((req) => req.role === "analyst")?.id
     try {
       const response = await fetch(
               `${env.API_ENDPOINT}/analysts/job?id=${request_id}`
@@ -56,7 +61,7 @@
         <h6>
           Status :
           <span
-                  class={`text-xs font-semibold inline-block py-1 px-2 rounded uppercase last:mr-0 mr-1" + "
+                  class={`text-xs font-semibold inline-block py-1 px-2 rounded uppercase last:mr-0 mr-1
                   ${data.Status.toLowerCase() === 'pending' && 'text-red-600 bg-red-200'}
                   ${data.Status.toLowerCase() === 'in progress' && 'text-blue-500 bg-orange-200'}
                   ${data.Status.toLowerCase() === 'complete' && 'text-green-800 bg-orange-200'}`}
@@ -65,7 +70,7 @@
           </span>
           Priority :
           <span
-                  class={`text-xs font-semibold inline-block py-1 px-2 rounded uppercase last:mr-0 mr-1" + "
+                  class={`text-xs font-semibold inline-block py-1 px-2 rounded uppercase last:mr-0 mr-1
                   ${data.Priority_level.toLowerCase() === 'high' && 'text-red-600 bg-red-200'}
                   ${data.Priority_level.toLowerCase() === 'medium' && 'text-orange-500 bg-orange-200'}
                   ${data.Priority_level.toLowerCase() === 'low' && 'text-orange-500 bg-yellow-500'}`}
@@ -150,6 +155,11 @@
         {#if data.Status.toLowerCase() !== 'complete'}
           <div class="bg-blueGray-100">
             <FormAnalystComplete status={data.Status} request_id={data.ReqId} request_uuid={request_id}/>
+          </div>
+        {/if}
+        {#if data.Status.toLowerCase() === 'complete'}
+          <div class="max-h-80">
+            <UserFeedback request_id={request_id} sender_id={assigneeUuid} />
           </div>
         {/if}
 

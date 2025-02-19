@@ -3,6 +3,7 @@
   import moment from 'moment';
   import CardRequestDocuments from "./CardRequestDocuments.svelte";
   import CardInternalApproverDetails from "./CardInternalApproverDetails.svelte";
+  import UserFeedback from "../../Forms/UserFeedback.svelte";
 
   const env = process.env.config;
   export let request_id;
@@ -183,6 +184,10 @@
                 </tr>
                 </tbody>
               </table>
+
+              {#if data.Status.toLowerCase() === 'complete'}
+                <UserFeedback request_id={request_id} sender_id={data?.Requestor_id} />
+              {/if}
             </div>
 
           </div>
